@@ -5,13 +5,15 @@
 	export let data: PageData;
 </script>
 
-<div class="container m-auto flex h-svh flex-col items-center justify-center">
-	<div class="space-y-5 text-center text-neutral-700 dark:text-white">
-		<h1 class="font-yamafont text-5xl">Es Ist Mittwoch</h1>
-		<img src={frog} alt="frog" id="frog-logo" class="h-auto w-96 object-contain" />
-		<h1 class="font-yamafont text-5xl">Meine Kerle</h1>
+{#if data.isWednesday}
+	<div class="container m-auto flex h-svh flex-col items-center justify-center">
+		<div class="space-y-5 text-center text-neutral-700 dark:text-white">
+			<h1 class="font-yamafont text-5xl">Es Ist Mittwoch</h1>
+			<img src={frog} alt="frog" id="frog-logo" class="h-auto w-96 object-contain" />
+			<h1 class="font-yamafont text-5xl">Meine Kerle</h1>
+		</div>
 	</div>
-</div>
+{/if}
 
 <style lang="postcss">
 	#frog-logo {
