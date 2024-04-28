@@ -3,11 +3,13 @@
 	import frog from '$lib/asset/frog.webp';
 	import Countdown from '$lib/component/Countdown.svelte';
 
-	export let data: PageData;
+	const dateOptions: Intl.DateTimeFormatOptions = { timeZone: 'Europe/Berlin', weekday: 'long' };
+	const isWednesday: boolean =
+		new Date().toLocaleString('de-DE', dateOptions) === 'Mittwoch' || false;
 </script>
 
 <svelte:head>
-	{#if data.isWednesday}
+	{#if isWednesday}
 		<title>Es ist Mittwoch</title>
 	{:else}
 		<title>Es ist nicht Mittwoch</title>
@@ -16,7 +18,7 @@
 	<html lang="de" />
 </svelte:head>
 
-{#if data.isWednesday || import.meta.env.DEV}
+{#if isWednesday || import.meta.env.DEV}
 	<div class="container m-auto flex h-svh flex-col items-center justify-center">
 		<div class="space-y-5 text-center text-neutral-700 dark:text-white">
 			<h1 class="font-yamafont text-5xl">Es Ist Mittwoch</h1>
@@ -25,7 +27,7 @@
 		</div>
 	</div>
 {/if}
-{#if !data.isWednesday || import.meta.env.DEV}
+{#if !isWednesday || import.meta.env.DEV}
 	<Countdown></Countdown>
 {/if}
 
