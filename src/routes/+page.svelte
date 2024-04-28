@@ -1,7 +1,7 @@
 <script lang="ts">
 	import type { PageData } from './$types';
 	import frog from '$lib/asset/frog.webp';
-	import Countdown from '$lib/component/Countdown.svelte';
+	// import Countdown from '$lib/component/Countdown.svelte';
 
 	const dateOptions: Intl.DateTimeFormatOptions = { timeZone: 'Europe/Berlin', weekday: 'long' };
 	const isWednesday: boolean =
@@ -27,9 +27,10 @@
 		</div>
 	</div>
 {/if}
-{#if !isWednesday || import.meta.env.DEV}
-	<Countdown></Countdown>
-{/if}
+
+<!--{#if !isWednesday || import.meta.env.DEV}-->
+<!--	<Countdown></Countdown>-->
+<!--{/if}-->
 
 <style lang="postcss">
 	#frog-logo {
