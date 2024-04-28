@@ -1,11 +1,22 @@
 <script lang="ts">
 	import type { PageData } from './$types';
 	import frog from '$lib/asset/frog.webp';
+	import Countdown from '$lib/component/Countdown.svelte';
 
 	export let data: PageData;
 </script>
 
-{#if data.isWednesday}
+<svelte:head>
+	{#if data.isWednesday}
+		<title>Es ist Mittwoch</title>
+	{:else}
+		<title>Es ist nicht Mittwoch</title>
+	{/if}
+	<!--	<meta name="robots" content="noindex nofollow" />-->
+	<html lang="de" />
+</svelte:head>
+
+{#if data.isWednesday || import.meta.env.DEV}
 	<div class="container m-auto flex h-svh flex-col items-center justify-center">
 		<div class="space-y-5 text-center text-neutral-700 dark:text-white">
 			<h1 class="font-yamafont text-5xl">Es Ist Mittwoch</h1>
@@ -13,6 +24,9 @@
 			<h1 class="font-yamafont text-5xl">Meine Kerle</h1>
 		</div>
 	</div>
+{/if}
+{#if !data.isWednesday || import.meta.env.DEV}
+	<Countdown></Countdown>
 {/if}
 
 <style lang="postcss">
