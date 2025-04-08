@@ -1,5 +1,4 @@
 <script lang="ts">
-	import type { PageData } from './$types';
 	import frog from '$lib/asset/frog.webp';
 	// import Countdown from '$lib/component/Countdown.svelte';
 
@@ -14,8 +13,6 @@
 	{:else}
 		<title>Es ist nicht Mittwoch</title>
 	{/if}
-	<!--	<meta name="robots" content="noindex nofollow" />-->
-	<html lang="de" />
 </svelte:head>
 
 {#if isWednesday || import.meta.env.DEV}
@@ -27,10 +24,6 @@
 		</div>
 	</div>
 {/if}
-
-<!--{#if !isWednesday || import.meta.env.DEV}-->
-<!--	<Countdown></Countdown>-->
-<!--{/if}-->
 
 <style lang="postcss">
 	#frog-logo {
